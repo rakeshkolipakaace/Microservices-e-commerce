@@ -1,36 +1,54 @@
 pipeline {
     agent any
+
     environment {
         DOCKER_HUB_USER = "rakeshkolipaka630" 
         IMAGE_NAME = "shoppingassistantservice" 
-        IMAGE_TAG = "${BUILD_NUMBER}" 
-        REPO_URL = "${DOCKER_HUB_USER}/${IMAGE_NAME}" 
+        IMAGE_TAG = "$" 
+        REPO_URL = "$/$" 
         SONAR_HOME = tool "Sonar" 
         DOCKER_CREDS = "dockerhub-creds" 
     }
+
     stages {
         stage("SonarQube Scan") {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=shoppingassistantservice -Dsonar.projectKey=shoppingassistantservice"
+                    sh "$/bin/sonar-scanner -Dsonar.projectName=$ -Dsonar.projectKey=$"
                 }
+            }
+        }
+        stage("OWASP Dependency Check") {
+            steps {
+                dependencyCheck additionalArguments: '--scan ./src/$', odcInstallation: 'Owasp'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
+        stage("Trivy FS Scan") {
+            steps {
+                sh "trivy fs --format table -o trivy-fs-report.html ."
             }
         }
         stage("Docker Build") {
             steps {
                 script {
-                    dir('src/shoppingassistantservice') {
-                        sh "docker build -t ${IMAGE_NAME} ."
+                    dir('src/$') {
+                        sh "docker build -t $ ."
                     }
                 }
             }
         }
+        stage("Trivy Image Scan") {
+            steps {
+                sh "trivy image --format table -o trivy-image-report.html $"
+            }
+        }
         stage("Docker Hub Login & Push") {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                withCredentials([usernamePassword(credentialsId: "$", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh "docker tag ${IMAGE_NAME} ${REPO_URL}:${IMAGE_TAG}"
-                    sh "docker push ${REPO_URL}:${IMAGE_TAG}"
+                    sh "docker tag $ $:$"
+                    sh "docker push $:$"
                 }
             }
         }
