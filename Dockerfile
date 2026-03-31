@@ -1,16 +1,16 @@
-# ---------- Build Stage ----------
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS builder
+# ---------- Stage 1: Build ----------
+FROM gradle:8.4.0-jdk21 AS builder
 
 WORKDIR /app
-COPY . .
+COPY build.gradle settings.gradle ./
+COPY src ./src
 
-RUN dotnet restore
-RUN dotnet publish -c Release -o out
+RUN gradle build -x verifyGoogleJavaFormat
 
-# ---------- Runtime Stage ----------
-FROM mcr.microsoft.com/dotnet/aspnet:8.0
+# ---------- Stage 2: Run ----------
+FROM eclipse-temurin:21-jdk-alpine
 
 WORKDIR /app
-COPY --from=builder /app/out .
+COPY --from=builder /app/build/libs/adservice-*.jar app.jar
 
-ENTRYPOINT ["dotnet", "cartservice.dll"]
+CMD ["java", "-jar", "app.jar"]
