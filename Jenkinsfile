@@ -1,9 +1,9 @@
-﻿pipeline {
+pipeline {
     agent any
 
     environment {
         DOCKER_HUB_USER = "rakeshkolipaka630" 
-        IMAGE_TAG = "\" 
+        IMAGE_TAG = "${BUILD_NUMBER}" 
         SONAR_HOME = tool "Sonar" 
         DOCKER_CREDS = "dockerhub-creds"
         SERVICE_NAME = "cartservice"
@@ -20,32 +20,32 @@
         stage("Security & Build") {
             steps {
                 script {
-                    echo "--- Starting Full Security Flow for \ ---"
+                    echo "--- Starting Full Security Flow for ${SERVICE_NAME} ---"
                     
                     withSonarQubeEnv('SonarQube') {
-                        sh "\/bin/sonar-scanner -Dsonar.projectName=\ -Dsonar.projectKey=\"
+                        sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${SERVICE_NAME} -Dsonar.projectKey=${SERVICE_NAME}"
                     }
                     
                     dependencyCheck additionalArguments: "--scan .", odcInstallation: 'Owasp'
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
                     
-                    sh "trivy fs --format table -o trivy-\-fs-report.html ."
+                    sh "trivy fs --format table -o trivy-${SERVICE_NAME}-fs-report.html ."
                     
-                    sh "docker build -t \ ."
+                    sh "docker build -t ${SERVICE_NAME} ."
 
-                    sh "trivy image --format table -o trivy-\-image-report.html \"
+                    sh "trivy image --format table -o trivy-${SERVICE_NAME}-image-report.html ${SERVICE_NAME}"
                     
-                    withCredentials([usernamePassword(credentialsId: "\", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                        sh "echo \\\ | docker login -u \\\ --password-stdin"
-                        sh "docker tag \ \/\:\"
-                        sh "docker push \/\:\"
+                    withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                        sh "echo \$PASS | docker login -u \$USER --password-stdin"
+                        sh "docker tag ${SERVICE_NAME} ${DOCKER_HUB_USER}/${SERVICE_NAME}:${IMAGE_TAG}"
+                        sh "docker push ${DOCKER_HUB_USER}/${SERVICE_NAME}:${IMAGE_TAG}"
                     }
                 }
             }
         }
     }
     post {
-        success { echo "Build and push of \ successful!" }
-        failure { echo "Build and push of \ failed." }
+        success { echo "Build and push of ${SERVICE_NAME} successful!" }
+        failure { echo "Build and push of ${SERVICE_NAME} failed." }
     }
 }
