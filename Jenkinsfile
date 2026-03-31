@@ -26,7 +26,7 @@ pipeline {
                         sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${SERVICE_NAME} -Dsonar.projectKey=${SERVICE_NAME}"
                     }
                     
-                    dependencyCheck additionalArguments: "--scan .", odcInstallation: 'Owasp'
+                    dependencyCheck additionalArguments: "--scan .", odcInstallation: 'Owas'
                     dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
                     
                     sh "trivy fs --format table -o trivy-${SERVICE_NAME}-fs-report.html ."
