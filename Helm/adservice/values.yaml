@@ -1,8 +1,0 @@
-replicaCount: 1
-image:
-  repository: rakeshkolipaka630/adservice
-  pullPolicy: IfNotPresent
-  tag: \"latest\"
-service:
-  type: ClusterIP
-  port: 80
