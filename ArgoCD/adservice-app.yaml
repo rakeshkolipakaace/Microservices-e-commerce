@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: adservice-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/rakeshkolipakaace/Microservices-e-commerce.git
+    targetRevision: HEAD
+    path: Helm/adservice
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: microservices
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
