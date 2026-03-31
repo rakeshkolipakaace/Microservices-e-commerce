@@ -19,7 +19,7 @@ pipeline {
         stage("SonarQube Scan") {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${IMAGE_NAME} -Dsonar.projectKey=${IMAGE_NAME} -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=."
+                    sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${IMAGE_NAME} -Dsonar.projectKey=${IMAGE_NAME} -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=. -Dsonar.java.binaries=."
                 }
             }
         }
