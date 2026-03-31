@@ -4,7 +4,7 @@ COPY build.gradle settings.gradle ./
 COPY src ./src
 RUN gradle build
 
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 COPY --from=builder /app/build/libs/adservice-*.jar app.jar
 CMD ["java", "-jar", "app.jar"]
