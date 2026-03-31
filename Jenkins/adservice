@@ -2,14 +2,11 @@ pipeline {
     agent any
 
     environment {
-        // --- ADD THESE VARIABLES ---
-        DOCKER_HUB_USER = "rakeshkolipaka630" // Your Docker Hub username
-        IMAGE_NAME = "adservice"
-        IMAGE_TAG = "${BUILD_NUMBER}"
-        REPO_URL = "${DOCKER_HUB_USER}/${IMAGE_NAME}"
-        
-        // Tools (Make sure these names match your Jenkins "Global Tool Configuration")
-        SONAR_HOME = tool "Sonar"
+        DOCKER_HUB_USER = "rakeshkolipaka630" 
+        IMAGE_NAME = "adservice" 
+        IMAGE_TAG = "$" 
+        REPO_URL = "$/$" 
+        SONAR_HOME = tool "Sonar" 
         DOCKER_CREDS = "dockerhub-creds" 
     }
 
@@ -17,77 +14,43 @@ pipeline {
         stage("SonarQube Scan") {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    // This scans your Java code
-                    // sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=adservice -Dsonar.projectKey=adservice"
-                    sh 'sonar-scanner -Dsonar.projectKey=adsservice'
+                    sh "$/bin/sonar-scanner -Dsonar.projectName=$ -Dsonar.projectKey=$"
                 }
             }
         }
-
         stage("OWASP Dependency Check") {
             steps {
-                // This scans for vulnerable libraries
-                dependencyCheck additionalArguments: '--scan ./src/adservice', odcInstallation: 'Owasp'
+                dependencyCheck additionalArguments: '--scan ./src/$', odcInstallation: 'Owasp'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
-
-        stage("Sonar Quality Gate") {
-            steps {
-                timeout(time: 2, unit: "MINUTES") {
-                    waitForQualityGate abortPipeline: false
-                }
-            }
-        }
-
         stage("Trivy FS Scan") {
             steps {
-                // Scan the source code for secrets/bugs
                 sh "trivy fs --format table -o trivy-fs-report.html ."
             }
         }
-
         stage("Docker Build") {
             steps {
                 script {
-                    // Point to the correct folder
-                    dir('src/adservice') {
-                        sh "docker build -t ${IMAGE_NAME} ."
+                    dir('src/$') {
+                        sh "docker build -t $ ."
                     }
                 }
             }
         }
-
         stage("Trivy Image Scan") {
             steps {
-                // Scan the BUILT image for OS vulnerabilities
-                sh "trivy image --format table -o trivy-image-report.html ${IMAGE_NAME}"
+                sh "trivy image --format table -o trivy-image-report.html $"
             }
         }
-
         stage("Docker Hub Login & Push") {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-                    sh "echo \$PASS | docker login -u \$USER --password-stdin"
-                    
-                    // Tag for Docker Hub
-                    sh "docker tag ${IMAGE_NAME} ${REPO_URL}:${IMAGE_TAG}"
-                    sh "docker tag ${IMAGE_NAME} ${REPO_URL}:latest"
-                    
-                    // Push
-                    sh "docker push ${REPO_URL}:${IMAGE_TAG}"
-                    sh "docker push ${REPO_URL}:latest"
+                withCredentials([usernamePassword(credentialsId: "$", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                    sh "echo $PASS | docker login -u $USER --password-stdin"
+                    sh "docker tag $ $:$"
+                    sh "docker push $:$"
                 }
             }
-        }
-    }
-
-    post {
-        success {
-            echo "Pipeline finished successfully! Image pushed to: ${REPO_URL}:${IMAGE_TAG}"
-        }
-        failure {
-            echo "Pipeline failed. Please check the logs."
         }
     }
 }
