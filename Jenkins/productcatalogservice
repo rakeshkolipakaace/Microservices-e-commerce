@@ -4,8 +4,8 @@ pipeline {
     environment {
         DOCKER_HUB_USER = "rakeshkolipaka630" 
         IMAGE_NAME = "productcatalogservice" 
-        IMAGE_TAG = "$" 
-        REPO_URL = "$/$" 
+        IMAGE_TAG = "$BUILD_NUMBER" 
+        REPO_URL = "$DOCKER_HUB_USER/$IMAGE_NAME" 
         SONAR_HOME = tool "Sonar" 
         DOCKER_CREDS = "dockerhub-creds" 
     }
@@ -14,13 +14,13 @@ pipeline {
         stage("SonarQube Scan") {
             steps {
                 withSonarQubeEnv('SonarQube') {
-                    sh "$/bin/sonar-scanner -Dsonar.projectName=$ -Dsonar.projectKey=$"
+                    sh "$SONAR_HOME/bin/sonar-scanner -Dsonar.projectName=$IMAGE_NAME -Dsonar.projectKey=$IMAGE_NAME"
                 }
             }
         }
         stage("OWASP Dependency Check") {
             steps {
-                dependencyCheck additionalArguments: '--scan ./src/$', odcInstallation: 'Owasp'
+                dependencyCheck additionalArguments: '--scan ./src/productcatalogservice', odcInstallation: 'Owasp'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
@@ -32,25 +32,33 @@ pipeline {
         stage("Docker Build") {
             steps {
                 script {
-                    dir('src/$') {
-                        sh "docker build -t $ ."
+                    dir('src/productcatalogservice') {
+                        sh "docker build -t $IMAGE_NAME ."
                     }
                 }
             }
         }
         stage("Trivy Image Scan") {
             steps {
-                sh "trivy image --format table -o trivy-image-report.html $"
+                sh "trivy image --format table -o trivy-image-report.html $IMAGE_NAME"
             }
         }
         stage("Docker Hub Login & Push") {
             steps {
-                withCredentials([usernamePassword(credentialsId: "$", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+                withCredentials([usernamePassword(credentialsId: "$DOCKER_CREDS", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     sh "echo $PASS | docker login -u $USER --password-stdin"
-                    sh "docker tag $ $:$"
-                    sh "docker push $:$"
+                    sh "docker tag $IMAGE_NAME $REPO_URL:$IMAGE_TAG"
+                    sh "docker push $REPO_URL:$IMAGE_TAG"
                 }
             }
+        }
+    }
+    post {
+        success {
+            echo "Pipeline successful! Image was pushed to Docker Hub."
+        }
+        failure {
+            echo "Pipeline failed! Please check the SonarQube or Trivy logs."
         }
     }
 }
