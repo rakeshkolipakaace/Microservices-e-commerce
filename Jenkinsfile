@@ -42,30 +42,30 @@ pipeline {
 def buildService(String name) {
     echo "--- Starting Full Security Flow for ${name} ---"
     
-    // 1. SonarQube Scan
-    withSonarQubeEnv('SonarQube') {
-        sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${name} -Dsonar.projectKey=${name}"
-    }
-    
-    // 2. OWASP Dependency Check
-    dependencyCheck additionalArguments: "--scan ./src/${name}", odcInstallation: 'Owasp'
-    dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
-    
-    // 3. Trivy FS Scan
-    sh "trivy fs --format table -o trivy-${name}-fs-report.html ./src/${name}"
-    
-    // 4. Docker Build
     dir("src/${name}") {
+        // 1. SonarQube Scan
+        withSonarQubeEnv('SonarQube') {
+            sh "${SONAR_HOME}/bin/sonar-scanner -Dsonar.projectName=${name} -Dsonar.projectKey=${name}"
+        }
+        
+        // 2. OWASP Dependency Check
+        dependencyCheck additionalArguments: "--scan .", odcInstallation: 'Owasp'
+        dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+        
+        // 3. Trivy FS Scan
+        sh "trivy fs --format table -o trivy-${name}-fs-report.html ."
+        
+        // 4. Docker Build
         sh "docker build -t ${name} ."
-    }
 
-    // 5. Trivy Image Scan
-    sh "trivy image --format table -o trivy-${name}-image-report.html ${name}"
-    
-    // 6. Docker Hub Login & Push
-    withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
-        sh "echo \$PASS | docker login -u \$USER --password-stdin"
-        sh "docker tag ${name} ${DOCKER_HUB_USER}/${name}:${IMAGE_TAG}"
-        sh "docker push ${DOCKER_HUB_USER}/${name}:${IMAGE_TAG}"
+        // 5. Trivy Image Scan
+        sh "trivy image --format table -o trivy-${name}-image-report.html ${name}"
+        
+        // 6. Docker Hub Login & Push
+        withCredentials([usernamePassword(credentialsId: "${DOCKER_CREDS}", usernameVariable: 'USER', passwordVariable: 'PASS')]) {
+            sh "echo \$PASS | docker login -u \$USER --password-stdin"
+            sh "docker tag ${name} ${DOCKER_HUB_USER}/${name}:${IMAGE_TAG}"
+            sh "docker push ${DOCKER_HUB_USER}/${name}:${IMAGE_TAG}"
+        }
     }
 }
