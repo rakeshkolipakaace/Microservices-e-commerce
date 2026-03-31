@@ -1,12 +1,21 @@
-FROM python:3.9 AS builder
+# ---------- Build Stage ----------
+FROM python:3.11 AS builder
+
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --user --no-cache-dir -r requirements.txt
+
+RUN pip install --upgrade pip && \
+    pip install --user --no-cache-dir -r requirements.txt
+
 COPY . .
 
-FROM python:3.9-slim
+# ---------- Runtime Stage ----------
+FROM python:3.11-slim
+
 WORKDIR /app
 COPY --from=builder /root/.local /root/.local
 COPY --from=builder /app .
+
 ENV PATH=/root/.local/bin:$PATH
+
 CMD ["python", "main.py"]
