@@ -1,8 +1,0 @@
-replicaCount: 1
-image:
-  repository: rakeshkolipaka630/cartservice
-  pullPolicy: IfNotPresent
-  tag: \"latest\"
-service:
-  type: ClusterIP
-  port: 80
