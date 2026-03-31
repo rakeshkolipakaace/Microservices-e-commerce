@@ -25,14 +25,14 @@ pipeline {
         }
         stage("OWASP Dependency Check") {
             steps {
-                dependencyCheck additionalArguments: '--scan ./src/cartservice', odcInstallation: 'Owasp'
+                dependencyCheck additionalArguments: '--scan .', odcInstallation: 'Owasp'
                 dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
             }
         }
         stage("Docker Build") {
             steps {
                 script {
-                    dir('src/cartservice') {
+                    dir('.') {
                         sh "docker build -t ${IMAGE_NAME} ."
                     }
                 }
