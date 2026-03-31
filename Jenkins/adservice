@@ -11,6 +11,13 @@ pipeline {
     }
 
     stages {
+        stage("Checkout Code") {
+            steps {
+                git branch: 'main',
+                    url: 'https://github.com/rakeshkolipakaace/Microservices-e-commerce.git',
+                    credentialsId: 'github-creds'
+            }
+        }
         stage("SonarQube Scan") {
             steps {
                 withSonarQubeEnv('SonarQube') {
