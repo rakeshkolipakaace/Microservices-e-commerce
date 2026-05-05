@@ -2,6 +2,8 @@
 
 Run the following command to restore dependencies to `vendor/` directory:
 
+this is for testing 
+
     go mod vendor
 
 ## Dynamic catalog reloading / artificial delay
