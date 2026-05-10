@@ -1,11 +1,11 @@
 FROM node:18-alpine AS builder
-WORKDIR /app
+WORKDIR /app`nENV DISABLE_PROFILER=1
 COPY package*.json ./
 RUN npm install
 COPY . .
 
 FROM node:18-alpine
-WORKDIR /app
+WORKDIR /app`nENV DISABLE_PROFILER=1
 COPY --from=builder /app .
 EXPOSE 7000
 CMD ["node", "server.js"]
