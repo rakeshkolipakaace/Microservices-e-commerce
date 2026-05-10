@@ -18,122 +18,115 @@
       .section { fill:#00E5FF; font-size:26px; font-family:Arial; font-weight:bold; }
       .service { fill:#FFFFFF; font-size:18px; font-family:Arial; font-weight:bold; }
       .small { fill:#CBD5E1; font-size:14px; font-family:Arial; }
-      .flow-line { stroke-dasharray: 20, 10; animation: dash 1s linear infinite; opacity: 0.7; }
+      .flow-line { stroke-dasharray: 20, 10; animation: dash 1s linear infinite; opacity: 0.8; }
       @keyframes dash { to { stroke-dashoffset: -30; } }
       .node { animation: pulse 2s ease-in-out infinite; }
       @keyframes pulse { 0%, 100% { filter: drop-shadow(0 0 5px rgba(0,229,255,0.1)); } 50% { filter: drop-shadow(0 0 10px rgba(0,229,255,0.4)); } }
     </style>
   </defs>
   <rect width="1920" height="1200" fill="url(#bg)"/>
-  <text x="960" y="55" text-anchor="middle" class="title">🚀 Online Boutique — Service Dependency Mesh</text>
-  <text x="960" y="95" text-anchor="middle" class="subtitle">Accurate gRPC Call Graph & Resource Flow</text>
-
-  <!-- INTERNET & LOAD GENERATOR -->
-  <g transform="translate(600, 140)">
-    <rect class="node" width="300" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="150" y="50" text-anchor="middle" class="service">🌐 Internet Users</text>
-  </g>
-  <g transform="translate(1020, 140)">
-    <rect class="node" width="300" height="80" rx="15" fill="url(#card)" stroke="#F44336" stroke-width="2"/>
-    <text x="150" y="50" text-anchor="middle" class="service">📈 Load Generator</text>
-  </g>
-
-  <!-- FRONTEND (CENTER HUB) -->
-  <g transform="translate(710, 300)">
-    <rect class="node" width="500" height="110" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="3"/>
-    <text x="250" y="50" text-anchor="middle" style="fill:#00E5FF;font-size:32px;font-family:Arial;font-weight:bold;">🚀 FRONTEND</text>
-    <text x="250" y="85" text-anchor="middle" class="infra" style="fill:#CBD5E1">Web UI & Gateway</text>
-  </g>
+  <text x="960" y="55" text-anchor="middle" class="title">🚀 Online Boutique — Full 12-Service DevOps Ecosystem</text>
+  <text x="960" y="95" text-anchor="middle" class="subtitle">Complete Microservices Call Graph & Infrastructure Mapping</text>
 
   <!-- CLUSTER BOUNDARY -->
-  <rect x="50" y="440" width="1820" height="580" rx="30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="12 10" opacity="0.4"/>
+  <rect x="50" y="240" width="1820" height="800" rx="30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="12 10" opacity="0.4"/>
+  <text x="960" y="280" text-anchor="middle" class="section">☸️ Kubernetes Cluster — Enterprise Service Mesh</text>
 
-  <!-- CORE SERVICES -->
-  <!-- Catalog -->
-  <g transform="translate(100, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">📦 Catalog</text>
+  <!-- EXTERNAL WORLD -->
+  <g transform="translate(450, 130)">
+    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">🌐 Internet Users</text>
   </g>
-  <!-- Currency -->
-  <g transform="translate(350, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">💱 Currency</text>
-  </g>
-  <!-- Cart -->
-  <g transform="translate(600, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">🛒 Cart</text>
-  </g>
-  <!-- Recommendation -->
-  <g transform="translate(850, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">📊 Recommendations</text>
-  </g>
-  <!-- Ads -->
-  <g transform="translate(1100, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">📢 Ad Service</text>
-  </g>
-  <!-- Shipping -->
-  <g transform="translate(1350, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">🚚 Shipping</text>
-  </g>
-  <!-- Assistant -->
-  <g transform="translate(1600, 520)">
-    <rect class="node" width="220" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
-    <text x="110" y="50" text-anchor="middle" class="service">🤖 Assistant</text>
+  <g transform="translate(1070, 130)">
+    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#F44336" stroke-width="3"/>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">📈 Load Generator (Locust)</text>
   </g>
 
-  <!-- CHECKOUT & DOWNSTREAM -->
-  <g transform="translate(810, 720)">
-    <rect class="node" width="300" height="110" rx="20" fill="url(#card)" stroke="#FF6D00" stroke-width="3"/>
-    <text x="150" y="65" text-anchor="middle" class="service" style="font-size:24px">💰 CHECKOUT</text>
+  <!-- HUB SERVICES -->
+  <!-- 1. FRONTEND -->
+  <g transform="translate(710, 320)">
+    <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="4"/>
+    <text x="250" y="60" text-anchor="middle" style="fill:#00E5FF;font-size:32px;font-family:Arial;font-weight:bold;">🚀 FRONTEND SERVER</text>
   </g>
 
-  <!-- Payment -->
-  <g transform="translate(680, 880)">
-    <rect class="node" width="220" height="90" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="55" text-anchor="middle" class="service">💳 Payment</text>
+  <!-- 2. CHECKOUT -->
+  <g transform="translate(710, 520)">
+    <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#FF6D00" stroke-width="4"/>
+    <text x="250" y="60" text-anchor="middle" style="fill:#FFFFFF;font-size:32px;font-family:Arial;font-weight:bold;">💰 CHECKOUT SERVICE</text>
   </g>
-  <!-- Email -->
-  <g transform="translate(920, 880)">
-    <rect class="node" width="220" height="90" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="110" y="55" text-anchor="middle" class="service">📧 Email</text>
+
+  <!-- GRID OF SERVICES -->
+  <!-- Row 1 -->
+  <g transform="translate(100, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">📦 Product Catalog</text>
   </g>
+  <g transform="translate(400, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">🛒 Cart Service</text>
+  </g>
+  <g transform="translate(700, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">💱 Currency Engine</text>
+  </g>
+  <g transform="translate(1000, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">🚚 Shipping Logic</text>
+  </g>
+  <g transform="translate(1300, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">📢 Ad Service</text>
+  </g>
+  <g transform="translate(1600, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">📧 Email Service</text>
+  </g>
+
+  <!-- Row 2 -->
+  <g transform="translate(100, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">💳 Payment Service</text>
+  </g>
+  <g transform="translate(400, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">📊 Recommendation</text>
+  </g>
+  <g transform="translate(700, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">🤖 Shopping Assistant</text>
+  </g>
+  <g transform="translate(1000, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E676" stroke-width="3"/>
+    <text x="125" y="55" text-anchor="middle" class="service" style="fill:#00E676">💾 Redis Cache</text>
+  </g>
+
+  <!-- CONNECTIONS -->
+  <path class="flow-line" d="M650,210 L750,320" stroke="#00E5FF" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M1270,210 L1170,320" stroke="#F44336" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Frontend to All -->
+  <path class="flow-line" d="M960,420 L225,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L525,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L825,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1125,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1425,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1725,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L525,850" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L825,850" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <path class="flow-line" d="M960,420 L960,520" stroke="#FF6D00" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Checkout to Downstream -->
+  <path class="flow-line" d="M710,570 L350,700" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M1210,570 L1600,700" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M850,620 L225,850" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
   <!-- Redis -->
-  <g transform="translate(600, 440)">
-    <rect class="node" width="220" height="60" rx="10" fill="url(#card)" stroke="#00E676" stroke-width="2"/>
-    <text x="110" y="38" text-anchor="middle" class="service">💾 Redis</text>
-  </g>
+  <path class="flow-line" d="M525,800 L1100,850" stroke="#00E676" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
 
-  <!-- CORRECT DEPENDENCY LINES (FRONTEND CALLS) -->
-  <path class="flow-line" d="M750,180 L850,300" stroke="#00E5FF" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M1170,180 L1070,300" stroke="#F44336" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
-
-  <path class="flow-line" d="M960,410 L210,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L460,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L710,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L960,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L1210,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L1460,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M960,410 L1710,520" stroke="#00E5FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <path class="flow-line" d="M960,410 L960,720" stroke="#FF6D00" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
-
-  <!-- CHECKOUT CALLS -->
-  <path class="flow-line" d="M810,775 L210,620" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M810,775 L710,620" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M1110,775 L1460,620" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M860,830 L790,880" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-  <path class="flow-line" d="M1060,830 L1030,880" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <!-- REDIS -->
-  <path class="flow-line" d="M710,520 L710,500" stroke="#00E676" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
-
-  <!-- FOOTER PIPELINE -->
-  <rect x="50" y="1040" width="1820" height="120" rx="24" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
-  <text x="960" y="1110" text-anchor="middle" style="fill:#FFFFFF;font-size:18px;font-family:Arial;font-weight:bold;">
-    🛠️ CI/CD AUTOMATION: Jenkins -> Docker Hub -> Helm -> Kubernetes (Zero Downtime Rolling Updates)
+  <!-- FOOTER -->
+  <rect x="50" y="1050" width="1820" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+  <text x="960" y="1110" text-anchor="middle" style="fill:#FFFFFF;font-size:22px;font-family:Arial;font-weight:bold;">
+    🚀 ALL 12 SERVICES STABILIZED: .NET • JAVA • GO • NODE.JS • PYTHON • REDIS
   </text>
 </svg>
