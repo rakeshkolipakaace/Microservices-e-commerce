@@ -1,0 +1,120 @@
+﻿<svg width="100%" height="auto" viewBox="0 0 1920 1200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04070F"/><stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/><stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF"/><stop offset="100%" stop-color="#2979FF"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <polygon points="0 0, 14 7, 0 14" fill="#00E5FF"/>
+    </marker>
+    <style>
+      .title { fill:#FFFFFF; font-size:42px; font-family:Arial; font-weight:bold; }
+      .subtitle { fill:#9CA3AF; font-size:20px; font-family:Arial; }
+      .section { fill:#00E5FF; font-size:26px; font-family:Arial; font-weight:bold; }
+      .service { fill:#FFFFFF; font-size:18px; font-family:Arial; font-weight:bold; }
+      .small { fill:#CBD5E1; font-size:14px; font-family:Arial; }
+      .flow-line { stroke-dasharray: 20, 10; animation: dash 1s linear infinite; opacity: 0.8; }
+      @keyframes dash { to { stroke-dashoffset: -30; } }
+      .node { animation: pulse 2s ease-in-out infinite; }
+      @keyframes pulse { 0%, 100% { filter: drop-shadow(0 0 5px rgba(0,229,255,0.1)); } 50% { filter: drop-shadow(0 0 10px rgba(0,229,255,0.4)); } }
+    </style>
+  </defs>
+  <rect width="1920" height="1200" fill="url(#bg)"/>
+  <text x="960" y="55" text-anchor="middle" class="title">&#x1F680; Online Boutique &#x2014; Full 12-Service DevOps Ecosystem</text>
+  <text x="960" y="95" text-anchor="middle" class="subtitle">Complete Microservices Call Graph &#x26; Infrastructure Mapping</text>
+
+  <rect x="50" y="240" width="1820" height="800" rx="30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="12 10" opacity="0.4"/>
+  <text x="960" y="280" text-anchor="middle" class="section">&#x2638; Kubernetes Cluster &#x2014; Enterprise Service Mesh</text>
+
+  <g transform="translate(450, 130)">
+    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">&#x1F310; Internet Users</text>
+  </g>
+  
+
+  <g transform="translate(710, 320)">
+    <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="4"/>
+    <text x="250" y="60" text-anchor="middle" style="fill:#00E5FF;font-size:32px;font-family:Arial;font-weight:bold;">&#x1F680; FRONTEND SERVER</text>
+  </g>
+
+  <g transform="translate(710, 520)">
+    <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#FF6D00" stroke-width="4"/>
+    <text x="250" y="60" text-anchor="middle" style="fill:#FFFFFF;font-size:32px;font-family:Arial;font-weight:bold;">&#x1F4B0; CHECKOUT SERVICE</text>
+  </g>
+
+  <g transform="translate(100, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4E6; Product Catalog</text>
+  </g>
+  <g transform="translate(400, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F6D2; Cart Service</text>
+  </g>
+  <g transform="translate(700, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4B1; Currency Engine</text>
+  </g>
+  <g transform="translate(1000, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F69A; Shipping Logic</text>
+  </g>
+  <g transform="translate(1300, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4E2; Ad Service</text>
+  </g>
+  <g transform="translate(1600, 700)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4E7; Email Service</text>
+  </g>
+
+  <g transform="translate(100, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4B3; Payment Service</text>
+  </g>
+  <g transform="translate(400, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F4CA; Recommendation</text>
+  </g>
+  <g transform="translate(700, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+    <text x="125" y="55" text-anchor="middle" class="service">&#x1F916; Shopping Assistant</text>
+  </g>
+  <g transform="translate(1000, 850)">
+    <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E676" stroke-width="3"/>
+    <text x="125" y="55" text-anchor="middle" class="service" style="fill:#00E676">&#x1F4BE; Redis Cache</text>
+  </g>
+
+  <path class="flow-line" d="M650,210 L750,320" stroke="#00E5FF" stroke-width="4" fill="none" marker-end="url(#arrow)"/>
+  
+
+  <path class="flow-line" d="M960,420 L225,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L525,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L825,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1125,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1425,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L1725,700" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L525,850" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M960,420 L825,850" stroke="#2979FF" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <path class="flow-line" d="M960,420 L960,520" stroke="#FF6D00" stroke-width="5" fill="none" marker-end="url(#arrow)"/>
+
+  <path class="flow-line" d="M710,570 L350,700" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M1210,570 L1600,700" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path class="flow-line" d="M850,620 L225,850" stroke="#FF6D00" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <path class="flow-line" d="M525,800 L1100,850" stroke="#00E676" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <rect x="50" y="1050" width="1820" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+  <text x="960" y="1110" text-anchor="middle" style="fill:#FFFFFF;font-size:22px;font-family:Arial;font-weight:bold;">
+    &#x1F680; ALL 12 SERVICES STABILIZED: .NET &#x2022; JAVA &#x2022; GO &#x2022; NODE.JS &#x2022; PYTHON &#x2022; REDIS
+  </text>
+</svg>
+
+
+
+
