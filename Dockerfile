@@ -9,4 +9,4 @@ WORKDIR /app
 COPY --from=builder /root/.local /root/.local
 COPY --from=builder /app .
 ENV PATH=/root/.local/bin:$PATH
-CMD ["python", "shoppingassistantservice.py"]
+CMD ["python", "shopping_assistant_server.py"]
