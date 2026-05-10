@@ -9,4 +9,4 @@ WORKDIR /app
 COPY --from=builder /root/.local /root/.local
 COPY --from=builder /app .
 ENV PATH=/root/.local/bin:$PATH
-CMD ["python", "main.py"]
+CMD ["python", "recommendation_server.py"]
