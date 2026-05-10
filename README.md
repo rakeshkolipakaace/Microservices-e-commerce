@@ -8,67 +8,68 @@ This project represents the **full-scale stabilization and architectural refinem
 
 ---
 
-## 🎭 The "3D" Transaction Flow
-This sequence illustrates the "heartbeat" of the system. From the moment an external user clicks a product to the final checkout, see how data pulses through the cluster.
+## 🎭 The Transaction Lifecycle (Flow)
+This sequence illustrates the "heartbeat" of the system. See how data pulses through the cluster from request to confirmation.
 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant U as 🌐 External User
-    participant F as 🚀 Frontend (Go)
-    participant C as 📦 Product Catalog (Go)
-    participant K as 🛒 Cart (C#)
-    participant R as 💾 Redis (Cache)
-    participant P as 💳 Payment (Node.js)
-    participant E as 📧 Email (Python)
+    participant U as 🌐 User
+    participant F as 🚀 Frontend
+    participant C as 📦 Catalog
+    participant K as 🛒 Cart
+    participant P as 💳 Payment
+    participant E as 📧 Email
 
-    U->>F: Browse Store (HTTP:9090)
-    F->>C: GetProducts (GRPC:80)
-    C-->>F: Product List
-    F-->>U: Render HTML
-    U->>F: Add to Cart
-    F->>K: AddItem (GRPC:80)
-    K->>R: Persist Session (TCP:6379)
-    U->>F: Place Order
-    F->>P: ProcessPayment (GRPC:80)
+    Note over U,E: High-Speed gRPC Communication (Port 80)
+    U->>F: 1. Browse (HTTP)
+    F->>C: 2. GetProducts
+    C-->>F: Product Data
+    U->>F: 3. Add to Cart
+    F->>K: 4. SetItem
+    U->>F: 5. Checkout
+    F->>P: 6. Process
     P-->>F: Success
-    F->>E: SendConfirmation (GRPC:80)
-    E-->>U: SMTP Confirmation
+    F->>E: 7. Notify
+    E-->>U: 8. Email Sent
 ```
 
 ---
 
-## 🏗️ Architectural Topology
-The "External World" interacts with the Frontend, which acts as a **Gatekeeper** to the internal service mesh.
+## 🏗️ System Architecture (Topology)
+High-contrast visualization of how the DevOps layer orchestrates the microservices core.
 
 ```mermaid
 flowchart TD
-    %% Styling
-    classDef external fill:#f96,stroke:#333,stroke-width:2px;
-    classDef internal fill:#69f,stroke:#333,stroke-width:1px;
-    classDef database fill:#9f9,stroke:#333,stroke-width:2px;
-    classDef devops fill:#f69,stroke:#333,stroke-width:2px;
+    %% Styling for visibility
+    classDef ext fill:#FF9100,stroke:#fff,stroke-width:4px,color:#fff,font-weight:bold;
+    classDef core fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef db fill:#28A745,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef tools fill:#E91E63,stroke:#fff,stroke-width:4px,color:#fff,font-weight:bold;
 
-    User((🌐 Internet User)):::external -->|Ingress/LB| Frontend[🚀 Frontend Server]:::internal
+    User((🌐 INTERNET USER)):::ext -->|HTTPS| Frontend[🚀 FRONTEND GATEWAY]:::core
     
-    subgraph "Microservices Core (High-Availability)"
-        Frontend -->|Port 80| Catalog[📦 Product Catalog]:::internal
-        Frontend -->|Port 80| Cart[🛒 Cart Service]:::internal
-        Frontend -->|Port 80| Currency[💱 Currency Engine]:::internal
-        Frontend -->|Port 80| Shipping[🚚 Shipping Logic]:::internal
+    subgraph "K8S MICROSERVICES CLUSTER"
+        direction TB
+        Frontend ====|gRPC| Catalog[📦 PRODUCT CATALOG]:::core
+        Frontend ====|gRPC| Cart[🛒 CART SERVICE]:::core
+        Frontend ====|gRPC| Currency[💱 CURRENCY ENGINE]:::core
+        Frontend ====|gRPC| Checkout[💰 CHECKOUT FLOW]:::core
         
-        Cart -->|Port 6379| Redis[(💾 Redis Cache)]:::database
+        Cart -.->|TCP:6379| Redis[(💾 REDIS CACHE)]:::db
         
-        Frontend -->|Port 80| Checkout[💰 Checkout Orchestrator]:::internal
-        Checkout -->|Port 80| Payment[💳 Payment Gateway]:::internal
-        Checkout -->|Port 80| Email[📧 Email Notifier]:::internal
-        Checkout -->|Port 80| Ads[📢 Ad Service]:::internal
+        Checkout ====|gRPC| Payment[💳 PAYMENT]:::core
+        Checkout ====|gRPC| Email[📧 EMAIL]:::core
+        Checkout ====|gRPC| Ship[🚚 SHIPPING]:::core
     end
 
-    subgraph "DevOps Excellence"
-        Jenkins[⚙️ CI/CD Jenkins]:::devops -.->|Artifacts| Docker[🐳 Docker Hub]
-        Helm[☸️ Helm/K8s]:::devops -.->|Deploy| Frontend
+    subgraph "DEVOPS PIPELINE"
+        Jenkins[⚙️ JENKINS CI]:::tools -->|Build| Docker[🐳 DOCKER HUB]:::tools
+        Helm[☸️ HELM/K8S]:::tools -->|Deploy| Frontend
     end
+
+    %% Link styles
+    linkStyle default stroke:#fff,stroke-width:2px;
 ```
 
 ---
@@ -95,10 +96,10 @@ flowchart TD
 ## 🌐 The DevOps -> External World Interaction
 How this project bridges the gap between code and the real world:
 
-1.  **Ingress & Traffic Control:** In a production environment (like AWS EKS), the DevOps engineer configures an **ALB (Application Load Balancer)** to route port 443 (HTTPS) to the Frontend Service on port 80.
-2.  **Service Isolation:** Internal services are **invisible** to the external world. They exist in a private subnet, protected by Kubernetes Network Policies.
-3.  **Observability Loop:** When an external user encounters a 500 error, DevOps tools (Prometheus/Grafana) alert the engineer, who traces the request back through the gRPC mesh to the failing pod.
-4.  **Zero-Downtime Deployment:** Using **Helm**, we can update the `PaymentService` image and perform a "Rolling Update," ensuring external users never see a 404 page during a release.
+1.  **Ingress & Traffic Control:** In a production environment, an **ALB (Application Load Balancer)** routes port 443 (HTTPS) to the Frontend Service.
+2.  **Service Isolation:** Internal services are protected by Kubernetes Network Policies and reside in private subnets.
+3.  **Observability Loop:** Integrated health checks (Liveness/Readiness) ensure the cluster self-heals if a service fails.
+4.  **Zero-Downtime Deployment:** Helm-managed rolling updates ensure the "External World" never experiences service interruptions.
 
 ---
 
