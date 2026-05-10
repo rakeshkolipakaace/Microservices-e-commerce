@@ -31,7 +31,9 @@
   <rect x="50" y="240" width="1820" height="800" rx="30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="12 10" opacity="0.4"/>
   <text x="960" y="280" text-anchor="middle" class="section">&#x2638; Kubernetes Cluster &#x2014; Enterprise Service Mesh</text>
 
-  <g transform="translate(760, 130)">`n    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>`n    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">&#x1F310; Internet Users</text>
+  <g transform="translate(760, 130)">
+    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">&#x1F310; Internet Users</text>
   </g>
   
 
@@ -112,6 +114,7 @@
     &#x1F680; ALL 12 SERVICES STABILIZED: .NET &#x2022; JAVA &#x2022; GO &#x2022; NODE.JS &#x2022; PYTHON &#x2022; REDIS
   </text>
 </svg>
+
 
 
 
