@@ -19,6 +19,8 @@ Below is the **live animated data flow** showing how requests pulse through the 
   <img src="https://raw.githubusercontent.com/rakeshkolipakaace/Microservices-e-commerce/main/flow_architecture.svg" alt="Animated Architecture" width="100%">
 </p>
 
+*Note: If the animation does not appear above, it may be due to GitHub security settings on SVGs. You can view the raw diagram [here](https://raw.githubusercontent.com/rakeshkolipakaace/Microservices-e-commerce/main/flow_architecture.svg).*
+
 ---
 
 ## 🏗️ System Architecture (Topology)
