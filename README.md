@@ -12,13 +12,6 @@ This project represents the **full-scale stabilization and architectural refinem
 
 ---
 
-## 🖥️ Real-Time Operations
-The Boutique is managed from a centralized DevOps command center, ensuring zero-downtime and real-time observability across all 12 services.
-
-<p align="center">
-  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/real_time_devops_center.png" alt="Real-Time DevOps Center" width="100%">
-</p>
-
 ---
 
 ## 🛡️ Architectural Call Graph
@@ -38,7 +31,7 @@ Below is the **data flow model** showing how requests pulse through the Enterpri
 | **ProductCatalog** | Go | Read-only access to the inventory JSON. | High-frequency read service; optimized for latency. |
 | **CartService** | C# (.NET 8) | Manages items in the user's shopping cart. | State management; requires strict Redis connectivity. |
 | **CheckoutService** | Go | Orchestrates the entire "Purchase" workflow. | Critical path; handles multiple downstream GRPC calls. |
-| **CurrencyService** | Node.js | Real-time conversion of product prices. | Lightweight JS service; critical for global sales. |
+| **CurrencyService** | Node.js | Standard conversion of product prices. | Lightweight JS service; critical for global sales. |
 | **PaymentService** | Node.js | Mocked gateway for processing credit cards. | Security-focused; high compliance requirements. |
 | **ShippingService** | Go | Calculates shipping costs based on weight. | Stateless logic; easily scalable in the cluster. |
 | **EmailService** | Python | Sends order confirmation emails. | Background processing; decoupled via async calls. |
@@ -60,6 +53,7 @@ How this project bridges the gap between code and the real world:
 ---
 
 *Engineered by **K. Rakesh** — Bridging the gap between Microservices and Infrastructure.*
+
 
 
 
