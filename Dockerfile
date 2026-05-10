@@ -13,6 +13,6 @@ RUN CGO_ENABLED=0 go build -o app .
 FROM alpine:latest
 
 WORKDIR /app
-COPY --from=builder /app/app .
+COPY --from=builder /app/app .`nCOPY templates/ ./templates/`nCOPY static/ ./static/
 
 CMD ["./app"]
