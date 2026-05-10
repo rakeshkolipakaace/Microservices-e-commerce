@@ -12,6 +12,15 @@ This project represents the **full-scale stabilization and architectural refinem
 
 ---
 
+## 🖥️ Real-Time Operations
+The Boutique is managed from a centralized DevOps command center, ensuring zero-downtime and real-time observability across all 12 services.
+
+<p align="center">
+  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/real_time_devops_center.png" alt="Real-Time DevOps Center" width="100%">
+</p>
+
+---
+
 ## 🎭 Active System Flow (Live Animation)
 Below is the **live animated data flow** showing how requests pulse through the Enterprise DevOps architecture.
 
