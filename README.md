@@ -1,7 +1,7 @@
 ﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/rakeshkolipakaace/Microservices-e-commerce/e8bdab8e8b0ebc878600d70fe5687ad3465ca63a/hero_architecture.png" alt="Boutique 3D Architecture" width="100%">
+  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/hero_architecture.png" alt="Boutique 3D Architecture" width="100%">
 </p>
 
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
@@ -15,14 +15,16 @@ This project represents the **full-scale stabilization and architectural refinem
 ## 🎭 Active System Flow (Live Animation)
 Below is the **live animated data flow** showing how requests pulse through the Enterprise DevOps architecture.
 
-### [🚀 Click here to view the Live 12-Service Animation](https://raw.githubusercontent.com/rakeshkolipakaace/Microservices-e-commerce/e8bdab8e8b0ebc878600d70fe5687ad3465ca63a/flow_architecture.svg)
+<p align="center">
+  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/flow_architecture.svg" alt="Animated Architecture" width="100%">
+</p>
 
 ---
 
 ## 🏗️ System Architecture (Topology)
 *Master orchestration visualized against a premium dark canvas.*
 
-`mermaid
+```mermaid
 %%{init: {
   'theme': 'dark', 
   'themeVariables': { 
@@ -64,7 +66,7 @@ flowchart TD
 
     %% Link styles
     linkStyle default stroke:#00E5FF,stroke-width:2px;
-`
+```
 
 ---
 
