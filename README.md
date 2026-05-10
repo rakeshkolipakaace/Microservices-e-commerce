@@ -45,7 +45,7 @@ Below is the **live animated data flow** showing how requests pulse through the 
 | **Recommendation** | Python | Suggests "Related Products" using basic logic. | Machine Learning entry point; data-heavy service. |
 | **AdService** | Java 21 | Serves targeted advertisements. | High performance; uses generated GRPC code. |
 | **Redis** | C (Cache) | Distributed memory store for Cart Service. | Single point of state; requires high availability. |
-| **LoadGenerator** | Python | Simulates user traffic using Locust. | Stress testing; validates DevOps scaling policies. |
+
 
 ---
 
@@ -60,3 +60,5 @@ How this project bridges the gap between code and the real world:
 ---
 
 *Engineered by **K. Rakesh** — Bridging the gap between Microservices and Infrastructure.*
+
+
