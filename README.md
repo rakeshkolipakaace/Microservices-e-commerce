@@ -1,7 +1,7 @@
 ﻿# 🛒 Online Boutique: Stabilized Microservices Ecosystem
 
 <p align="center">
-  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/hero_architecture.png" alt="Boutique 3D Architecture" width="100%">
+  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/final_hero.png" alt="Boutique 3D Architecture" width="100%">
 </p>
 
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
@@ -18,7 +18,7 @@ This project represents the **full-scale stabilization and architectural refinem
 Below is the **data flow model** showing how requests pulse through the Enterprise DevOps architecture.
 
 <p align="center">
-  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/flow_architecture.svg" alt="Animated Architecture" width="100%">
+  <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/final_flow.svg" alt="Animated Architecture" width="100%">
 </p>
 
 ---
@@ -53,6 +53,7 @@ How this project bridges the gap between code and the real world:
 ---
 
 *Engineered by **K. Rakesh** — Bridging the gap between Microservices and Infrastructure.*
+
 
 
 
