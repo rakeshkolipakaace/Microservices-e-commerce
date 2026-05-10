@@ -35,10 +35,7 @@
     <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
     <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">&#x1F310; Internet Users</text>
   </g>
-  <g transform="translate(1070, 130)">
-    <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#F44336" stroke-width="3"/>
-    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">&#x1F4C8; Load Generator (Locust)</text>
-  </g>
+  
 
   <g transform="translate(710, 320)">
     <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="4"/>
@@ -117,4 +114,5 @@
     &#x1F680; ALL 12 SERVICES STABILIZED: .NET &#x2022; JAVA &#x2022; GO &#x2022; NODE.JS &#x2022; PYTHON &#x2022; REDIS
   </text>
 </svg>
+
 
