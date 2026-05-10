@@ -1,0 +1,103 @@
+<svg width="100%" height="auto" viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#04070F"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="flow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00E5FF"/>
+      <stop offset="100%" stop-color="#2979FF"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feDropShadow dx="0" dy="0" stdDeviation="8" flood-color="#00E5FF" flood-opacity="0.35"/>
+    </filter>
+    <marker id="arrow" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+      <polygon points="0 0, 14 7, 0 14" fill="#00E5FF"/>
+    </marker>
+    <style>
+      .title { fill:#FFFFFF; font-size:38px; font-family:Arial; font-weight:bold; }
+      .subtitle { fill:#9CA3AF; font-size:18px; font-family:Arial; }
+      .section { fill:#00E5FF; font-size:24px; font-family:Arial; font-weight:bold; }
+      .service { fill:#FFFFFF; font-size:18px; font-family:Arial; font-weight:bold; }
+      .small { fill:#CBD5E1; font-size:13px; font-family:Arial; }
+      .infra { fill:#FFFFFF; font-size:16px; font-family:Arial; }
+      .pipeline { fill:#00E5FF; font-size:16px; font-family:Arial; font-weight:bold; }
+      
+      /* ANIMATIONS */
+      .flow-line {
+        stroke-dasharray: 20, 10;
+        animation: dash 1s linear infinite;
+      }
+      @keyframes dash {
+        to { stroke-dashoffset: -30; }
+      }
+      .node {
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes pulse {
+        0%, 100% { filter: drop-shadow(0 0 5px rgba(0,229,255,0.2)); }
+        50% { filter: drop-shadow(0 0 15px rgba(0,229,255,0.6)); }
+      }
+    </style>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <text x="960" y="55" text-anchor="middle" class="title">🚀 Online Boutique — Enterprise DevOps Architecture</text>
+  <text x="960" y="90" text-anchor="middle" class="subtitle">Kubernetes • Docker • Jenkins • Helm • Redis • gRPC Service Mesh • Self-Healing Infrastructure</text>
+  
+  <rect class="node" x="760" y="130" width="400" height="90" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
+  <text x="960" y="185" text-anchor="middle" style="fill:#FFFFFF;font-size:28px;font-family:Arial;font-weight:bold;">🌐 Internet / Customers</text>
+  
+  <line class="flow-line" x1="960" y1="220" x2="960" y2="285" stroke="url(#flow)" stroke-width="5" marker-end="url(#arrow)"/>
+  
+  <rect class="node" x="650" y="300" width="620" height="120" rx="24" fill="url(#card)" stroke="#2979FF" stroke-width="3"/>
+  <text x="960" y="350" text-anchor="middle" style="fill:#00E5FF;font-size:30px;font-family:Arial;font-weight:bold;">🚀 Frontend / Ingress Gateway</text>
+  <text x="960" y="390" text-anchor="middle" class="infra">API Routing • SSL Termination • Load Balancing • HTTP → gRPC Translation</text>
+  
+  <line class="flow-line" x1="960" y1="420" x2="960" y2="500" stroke="url(#flow)" stroke-width="5" marker-end="url(#arrow)"/>
+  
+  <rect x="90" y="520" width="1740" height="380" rx="30" fill="none" stroke="#00E5FF" stroke-width="3" stroke-dasharray="12 10"/>
+  <text x="960" y="560" text-anchor="middle" class="section">☸️ Kubernetes Cluster — Internal gRPC Service Mesh (Port 80)</text>
+  
+  <rect class="node" x="150" y="620" width="250" height="110" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="275" y="665" text-anchor="middle" class="service">📦 Product Catalog</text>
+  <text x="275" y="695" text-anchor="middle" class="small">Go • Product APIs</text>
+  
+  <rect class="node" x="470" y="620" width="250" height="110" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="595" y="665" text-anchor="middle" class="service">🛒 Cart Service</text>
+  <text x="595" y="695" text-anchor="middle" class="small">.NET • Session Management</text>
+  
+  <rect class="node" x="790" y="620" width="250" height="110" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="915" y="665" text-anchor="middle" class="service">💳 Checkout Service</text>
+  <text x="915" y="695" text-anchor="middle" class="small">Java • Order Processing</text>
+  
+  <rect class="node" x="1110" y="620" width="250" height="110" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="1235" y="665" text-anchor="middle" class="service">💰 Payment Gateway</text>
+  <text x="1235" y="695" text-anchor="middle" class="small">Node.js • Secure Transactions</text>
+  
+  <rect class="node" x="1430" y="620" width="250" height="110" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="1555" y="665" text-anchor="middle" class="service">📧 Notification Service</text>
+  <text x="1555" y="695" text-anchor="middle" class="small">Python • Email + Alerts</text>
+  
+  <line class="flow-line" x1="400" y1="675" x2="470" y2="675" stroke="#00E5FF" stroke-width="3"/>
+  <line class="flow-line" x1="720" y1="675" x2="790" y2="675" stroke="#00E5FF" stroke-width="3"/>
+  <line class="flow-line" x1="1040" y1="675" x2="1110" y2="675" stroke="#00E5FF" stroke-width="3"/>
+  <line class="flow-line" x1="1360" y1="675" x2="1430" y2="675" stroke="#00E5FF" stroke-width="3"/>
+  
+  <rect x="90" y="930" width="1740" height="60" rx="18" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
+  <text x="960" y="968" text-anchor="middle" style="fill:#FFFFFF;font-size:18px;font-family:Arial;font-weight:bold;">📊 Observability Layer — Liveness Probes • Readiness Checks • Auto Healing • Monitoring • Logging</text>
+  
+  <rect x="90" y="1010" width="1740" height="50" rx="16" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
+  <text x="180" y="1042" class="pipeline">💻 Developer Commit</text>
+  <line class="flow-line" x1="360" y1="1035" x2="470" y2="1035" stroke="url(#flow)" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="510" y="1042" class="pipeline">🧪 Jenkins CI</text>
+  <line class="flow-line" x1="650" y1="1035" x2="760" y2="1035" stroke="url(#flow)" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="800" y="1042" class="pipeline">🐳 Docker Build</text>
+  <line class="flow-line" x1="990" y1="1035" x2="1100" y2="1035" stroke="url(#flow)" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1140" y="1042" class="pipeline">☸️ Helm Deploy</text>
+  <line class="flow-line" x1="1320" y1="1035" x2="1430" y2="1035" stroke="url(#flow)" stroke-width="4" marker-end="url(#arrow)"/>
+  <text x="1470" y="1042" class="pipeline">🚀 Production Release</text>
+</svg>
