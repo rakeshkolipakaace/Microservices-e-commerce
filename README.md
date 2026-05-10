@@ -21,55 +21,6 @@ Below is the **live animated data flow** showing how requests pulse through the 
 
 ---
 
-## 🏗️ System Architecture (Topology)
-*Master orchestration visualized against a premium dark canvas.*
-
-```mermaid
-%%{init: {
-  'theme': 'dark', 
-  'themeVariables': { 
-    'darkMode': true, 
-    'background': '#000000',
-    'primaryColor': '#2979FF',
-    'clusterBkg': '#121212',
-    'clusterBorder': '#2979FF',
-    'lineColor': '#00E5FF'
-  }
-}}%%
-flowchart TD
-    %% Node Styling
-    classDef ext fill:#FF6D00,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
-    classDef core fill:#2979FF,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
-    classDef db fill:#00E676,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
-    classDef tools fill:#F50057,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
-
-    User((🌐 INTERNET USER)):::ext -->|HTTPS| Frontend[🚀 FRONTEND GATEWAY]:::core
-    
-    subgraph K8S_CLUSTER [K8S MICROSERVICES CLUSTER]
-        direction TB
-        Frontend ====|gRPC| Catalog[📦 PRODUCT CATALOG]:::core
-        Frontend ====|gRPC| Cart[🛒 CART SERVICE]:::core
-        Frontend ====|gRPC| Currency[💱 CURRENCY ENGINE]:::core
-        Frontend ====|gRPC| Checkout[💰 CHECKOUT FLOW]:::core
-        
-        Cart -.->|TCP:6379| Redis[(💾 REDIS CACHE)]:::db
-        
-        Checkout ====|gRPC| Payment[💳 PAYMENT]:::core
-        Checkout ====|gRPC| Email[📧 EMAIL]:::core
-        Checkout ====|gRPC| Ship[🚚 SHIPPING]:::core
-    end
-
-    subgraph DEVOPS_STACK [DEVOPS PIPELINE]
-        Jenkins[⚙️ JENKINS CI]:::tools -->|Build| Docker[🐳 DOCKER HUB]:::tools
-        Helm[☸️ HELM/K8S]:::tools -->|Deploy| Frontend
-    end
-
-    %% Link styles
-    linkStyle default stroke:#00E5FF,stroke-width:2px;
-```
-
----
-
 ## 📋 Service Intelligence: The 12 Pillars
 
 | Service | Language | Core Responsibility | DevOps Significance |
