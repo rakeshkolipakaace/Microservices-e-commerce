@@ -12,7 +12,24 @@ This project represents the **full-scale stabilization and architectural refinem
 *Sleek, high-contrast pulse of data across the cluster.*
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#000000', 'mainBkg': '#000000' }}}%%
+%%{init: {
+  'theme': 'dark', 
+  'themeVariables': { 
+    'darkMode': true, 
+    'background': '#000000', 
+    'actorBkg': '#1A1A1A', 
+    'actorBorder': '#2979FF', 
+    'actorTextColor': '#FFFFFF',
+    'signalColor': '#00E5FF',
+    'signalTextColor': '#FFFFFF',
+    'labelBoxBkgColor': '#1A1A1A',
+    'labelBoxBorderColor': '#2979FF',
+    'labelTextColor': '#FFFFFF',
+    'loopLimitBkgColor': '#1A1A1A',
+    'noteBkgColor': '#1A1A1A',
+    'noteTextColor': '#FFFFFF'
+  }
+}}%%
 sequenceDiagram
     autonumber
     participant U as 🌐 User
@@ -41,14 +58,23 @@ sequenceDiagram
 *Master orchestration visualized against a premium dark canvas.*
 
 ```mermaid
-%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#000000', 'primaryColor': '#007BFF' }}}%%
+%%{init: {
+  'theme': 'dark', 
+  'themeVariables': { 
+    'darkMode': true, 
+    'background': '#000000',
+    'primaryColor': '#2979FF',
+    'clusterBkg': '#121212',
+    'clusterBorder': '#2979FF',
+    'lineColor': '#00E5FF'
+  }
+}}%%
 flowchart TD
     %% Node Styling
     classDef ext fill:#FF6D00,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
     classDef core fill:#2979FF,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
     classDef db fill:#00E676,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
     classDef tools fill:#F50057,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
-    classDef cluster fill:#121212,stroke:#333,stroke-width:2px,color:#fff;
 
     User((🌐 INTERNET USER)):::ext -->|HTTPS| Frontend[🚀 FRONTEND GATEWAY]:::core
     
@@ -70,10 +96,6 @@ flowchart TD
         Jenkins[⚙️ JENKINS CI]:::tools -->|Build| Docker[🐳 DOCKER HUB]:::tools
         Helm[☸️ HELM/K8S]:::tools -->|Deploy| Frontend
     end
-
-    %% Apply cluster style
-    class K8S_CLUSTER cluster;
-    class DEVOPS_STACK cluster;
 
     %% Link styles
     linkStyle default stroke:#00E5FF,stroke-width:2px;
