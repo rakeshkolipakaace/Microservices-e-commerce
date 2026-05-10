@@ -18,4 +18,4 @@ COPY --from=builder /app .
 
 ENV PATH=/root/.local/bin:$PATH
 
-CMD ["python", "locustfile.py"]
+CMD ["locust", "--host", "http://frontend", "--locustfile", "locustfile.py", "--headless", "--users", "10", "--spawn-rate", "1"]
