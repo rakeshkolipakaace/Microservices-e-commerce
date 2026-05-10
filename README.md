@@ -1,4 +1,4 @@
-﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
+﻿# 🛒 Online Boutique: Stabilized Microservices Ecosystem
 
 <p align="center">
   <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/hero_architecture.png" alt="Boutique 3D Architecture" width="100%">
@@ -21,8 +21,8 @@ The Boutique is managed from a centralized DevOps command center, ensuring zero-
 
 ---
 
-## 🎭 Active System Flow (Live Animation)
-Below is the **live animated data flow** showing how requests pulse through the Enterprise DevOps architecture.
+## 🛡️ Architectural Call Graph
+Below is the **data flow model** showing how requests pulse through the Enterprise DevOps architecture.
 
 <p align="center">
   <img src="https://rakeshkolipakaace.github.io/Microservices-e-commerce/flow_architecture.svg" alt="Animated Architecture" width="100%">
@@ -60,6 +60,7 @@ How this project bridges the gap between code and the real world:
 ---
 
 *Engineered by **K. Rakesh** — Bridging the gap between Microservices and Infrastructure.*
+
 
 
 
