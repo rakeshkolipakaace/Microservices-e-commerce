@@ -5,5 +5,5 @@ RUN gradle build -x verifyGoogleJavaFormat
 
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
-COPY --from=builder /app/build/libs/adservice-*.jar app.jar
+COPY --from=builder /app/build/libs/hipstershop-*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
