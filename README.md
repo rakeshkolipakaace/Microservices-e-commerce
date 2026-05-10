@@ -1,8 +1,5 @@
 ﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
 
-![Boutique Helm Infographic](online_boutique_helm_3d_1778406431247.png)
-
-
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)](https://www.docker.com/)
 [![Helm](https://img.shields.io/badge/Package-Helm-0F1628?logo=helm)](https://helm.sh/)
@@ -12,9 +9,10 @@ This project represents the **full-scale stabilization and architectural refinem
 ---
 
 ## 🎭 The Transaction Lifecycle (Flow)
-This sequence illustrates the "heartbeat" of the system. See how data pulses through the cluster from request to confirmation.
+*Sleek, high-contrast pulse of data across the cluster.*
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#000000', 'mainBkg': '#000000' }}}%%
 sequenceDiagram
     autonumber
     participant U as 🌐 User
@@ -40,19 +38,21 @@ sequenceDiagram
 ---
 
 ## 🏗️ System Architecture (Topology)
-High-contrast visualization of how the DevOps layer orchestrates the microservices core.
+*Master orchestration visualized against a premium dark canvas.*
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true, 'background': '#000000', 'primaryColor': '#007BFF' }}}%%
 flowchart TD
-    %% Styling for visibility
-    classDef ext fill:#FF9100,stroke:#fff,stroke-width:4px,color:#fff,font-weight:bold;
-    classDef core fill:#007BFF,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
-    classDef db fill:#28A745,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
-    classDef tools fill:#E91E63,stroke:#fff,stroke-width:4px,color:#fff,font-weight:bold;
+    %% Node Styling
+    classDef ext fill:#FF6D00,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
+    classDef core fill:#2979FF,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef db fill:#00E676,stroke:#fff,stroke-width:2px,color:#fff,font-weight:bold;
+    classDef tools fill:#F50057,stroke:#fff,stroke-width:3px,color:#fff,font-weight:bold;
+    classDef cluster fill:#121212,stroke:#333,stroke-width:2px,color:#fff;
 
     User((🌐 INTERNET USER)):::ext -->|HTTPS| Frontend[🚀 FRONTEND GATEWAY]:::core
     
-    subgraph "K8S MICROSERVICES CLUSTER"
+    subgraph K8S_CLUSTER [K8S MICROSERVICES CLUSTER]
         direction TB
         Frontend ====|gRPC| Catalog[📦 PRODUCT CATALOG]:::core
         Frontend ====|gRPC| Cart[🛒 CART SERVICE]:::core
@@ -66,13 +66,17 @@ flowchart TD
         Checkout ====|gRPC| Ship[🚚 SHIPPING]:::core
     end
 
-    subgraph "DEVOPS PIPELINE"
+    subgraph DEVOPS_STACK [DEVOPS PIPELINE]
         Jenkins[⚙️ JENKINS CI]:::tools -->|Build| Docker[🐳 DOCKER HUB]:::tools
         Helm[☸️ HELM/K8S]:::tools -->|Deploy| Frontend
     end
 
+    %% Apply cluster style
+    class K8S_CLUSTER cluster;
+    class DEVOPS_STACK cluster;
+
     %% Link styles
-    linkStyle default stroke:#fff,stroke-width:2px;
+    linkStyle default stroke:#00E5FF,stroke-width:2px;
 ```
 
 ---
