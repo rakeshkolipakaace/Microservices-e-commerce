@@ -16,7 +16,7 @@ This project represents the **full-scale stabilization and architectural refinem
 Below is the **data flow model** showing how requests pulse through the Enterprise DevOps architecture.
 
 <p align="center">
-  <img src="./final_flow.svg?v=2" alt="Animated Architecture" width="100%">
+  <img src="./final_flow.svg?v=3" alt="Animated Architecture" width="100%">
 </p>
 
 ---
@@ -51,4 +51,5 @@ How this project bridges the gap between code and the real world:
 ---
 
 *Engineered by **K. Rakesh** — Bridging the gap between Microservices and Infrastructure.*
+
 
