@@ -5,5 +5,5 @@ RUN gradle installDist -x verifyGoogleJavaFormat
 
 FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
-COPY --from=builder /app/build/install/adservice .
+COPY --from=builder /app/build/install/*/ .
 ENTRYPOINT ["/app/bin/AdService"]
