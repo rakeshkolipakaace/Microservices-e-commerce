@@ -1,5 +1,7 @@
 ﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
 
+![Boutique 3D Architecture](boutique_3d_architecture_hero_1778407118011.png)
+
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)](https://www.docker.com/)
 [![Helm](https://img.shields.io/badge/Package-Helm-0F1628?logo=helm)](https://helm.sh/)
@@ -8,49 +10,10 @@ This project represents the **full-scale stabilization and architectural refinem
 
 ---
 
-## 🎭 The Transaction Lifecycle (Flow)
-*Sleek, high-contrast pulse of data across the cluster.*
+## 🎭 Active System Flow (Live Animation)
+Below is the **live animated data flow** showing how requests pulse through the Enterprise DevOps architecture.
 
-```mermaid
-%%{init: {
-  'theme': 'dark', 
-  'themeVariables': { 
-    'darkMode': true, 
-    'background': '#000000', 
-    'actorBkg': '#1A1A1A', 
-    'actorBorder': '#2979FF', 
-    'actorTextColor': '#FFFFFF',
-    'signalColor': '#00E5FF',
-    'signalTextColor': '#FFFFFF',
-    'labelBoxBkgColor': '#1A1A1A',
-    'labelBoxBorderColor': '#2979FF',
-    'labelTextColor': '#FFFFFF',
-    'loopLimitBkgColor': '#1A1A1A',
-    'noteBkgColor': '#1A1A1A',
-    'noteTextColor': '#FFFFFF'
-  }
-}}%%
-sequenceDiagram
-    autonumber
-    participant U as 🌐 User
-    participant F as 🚀 Frontend
-    participant C as 📦 Catalog
-    participant K as 🛒 Cart
-    participant P as 💳 Payment
-    participant E as 📧 Email
-
-    Note over U,E: High-Speed gRPC Communication (Port 80)
-    U->>F: 1. Browse (HTTP)
-    F->>C: 2. GetProducts
-    C-->>F: Product Data
-    U->>F: 3. Add to Cart
-    F->>K: 4. SetItem
-    U->>F: 5. Checkout
-    F->>P: 6. Process
-    P-->>F: Success
-    F->>E: 7. Notify
-    E-->>U: 8. Email Sent
-```
+![Animated Architecture](architecture_animated.svg)
 
 ---
 
