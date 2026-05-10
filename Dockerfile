@@ -14,7 +14,7 @@ RUN dotnet restore
 COPY . .
 
 # Build only main service (skip tests)
-RUN dotnet publish src/cartservice.csproj -c Release -o /app/out
+RUN dotnet publish cartservice.csproj -c Release -o /app/out
 
 # ---------- Runtime Stage ----------
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
