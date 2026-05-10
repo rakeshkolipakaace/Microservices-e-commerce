@@ -1,6 +1,8 @@
 ﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
 
-![Boutique 3D Architecture](hero_architecture.png)
+<p align="center">
+  <img src="./hero_architecture.png" alt="Boutique 3D Architecture" width="100%">
+</p>
 
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)](https://www.docker.com/)
@@ -13,7 +15,9 @@ This project represents the **full-scale stabilization and architectural refinem
 ## 🎭 Active System Flow (Live Animation)
 Below is the **live animated data flow** showing how requests pulse through the Enterprise DevOps architecture.
 
-![Animated Architecture](flow_architecture.svg)
+<p align="center">
+  <img src="./flow_architecture.svg" alt="Animated Architecture" width="100%">
+</p>
 
 ---
 
