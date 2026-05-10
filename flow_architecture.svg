@@ -1,4 +1,4 @@
-<svg width="100%" height="auto" viewBox="0 0 1920 1200" xmlns="http://www.w3.org/2000/svg">
+﻿<svg width="100%" height="auto" viewBox="0 0 1920 1200" xmlns="http://www.w3.org/2000/svg">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#04070F"/><stop offset="100%" stop-color="#0F172A"/>
@@ -25,79 +25,79 @@
     </style>
   </defs>
   <rect width="1920" height="1200" fill="url(#bg)"/>
-  <text x="960" y="55" text-anchor="middle" class="title">🚀 Online Boutique — Full 12-Service DevOps Ecosystem</text>
-  <text x="960" y="95" text-anchor="middle" class="subtitle">Complete Microservices Call Graph & Infrastructure Mapping</text>
+  <text x="960" y="55" text-anchor="middle" class="title">ðŸš€ Online Boutique â€” Full 12-Service DevOps Ecosystem</text>
+  <text x="960" y="95" text-anchor="middle" class="subtitle">Complete Microservices Call Graph &amp; Infrastructure Mapping</text>
 
   <!-- CLUSTER BOUNDARY -->
   <rect x="50" y="240" width="1820" height="800" rx="30" fill="none" stroke="#00E5FF" stroke-width="2" stroke-dasharray="12 10" opacity="0.4"/>
-  <text x="960" y="280" text-anchor="middle" class="section">☸️ Kubernetes Cluster — Enterprise Service Mesh</text>
+  <text x="960" y="280" text-anchor="middle" class="section">â˜¸ï¸ Kubernetes Cluster â€” Enterprise Service Mesh</text>
 
   <!-- EXTERNAL WORLD -->
   <g transform="translate(450, 130)">
     <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="3"/>
-    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">🌐 Internet Users</text>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">ðŸŒ Internet Users</text>
   </g>
   <g transform="translate(1070, 130)">
     <rect class="node" width="400" height="80" rx="15" fill="url(#card)" stroke="#F44336" stroke-width="3"/>
-    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">📈 Load Generator (Locust)</text>
+    <text x="200" y="50" text-anchor="middle" class="service" style="font-size:24px">ðŸ“ˆ Load Generator (Locust)</text>
   </g>
 
   <!-- HUB SERVICES -->
   <!-- 1. FRONTEND -->
   <g transform="translate(710, 320)">
     <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="4"/>
-    <text x="250" y="60" text-anchor="middle" style="fill:#00E5FF;font-size:32px;font-family:Arial;font-weight:bold;">🚀 FRONTEND SERVER</text>
+    <text x="250" y="60" text-anchor="middle" style="fill:#00E5FF;font-size:32px;font-family:Arial;font-weight:bold;">ðŸš€ FRONTEND SERVER</text>
   </g>
 
   <!-- 2. CHECKOUT -->
   <g transform="translate(710, 520)">
     <rect class="node" width="500" height="100" rx="20" fill="url(#card)" stroke="#FF6D00" stroke-width="4"/>
-    <text x="250" y="60" text-anchor="middle" style="fill:#FFFFFF;font-size:32px;font-family:Arial;font-weight:bold;">💰 CHECKOUT SERVICE</text>
+    <text x="250" y="60" text-anchor="middle" style="fill:#FFFFFF;font-size:32px;font-family:Arial;font-weight:bold;">ðŸ’° CHECKOUT SERVICE</text>
   </g>
 
   <!-- GRID OF SERVICES -->
   <!-- Row 1 -->
   <g transform="translate(100, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">📦 Product Catalog</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ“¦ Product Catalog</text>
   </g>
   <g transform="translate(400, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">🛒 Cart Service</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ›’ Cart Service</text>
   </g>
   <g transform="translate(700, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">💱 Currency Engine</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ’± Currency Engine</text>
   </g>
   <g transform="translate(1000, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">🚚 Shipping Logic</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸšš Shipping Logic</text>
   </g>
   <g transform="translate(1300, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">📢 Ad Service</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ“¢ Ad Service</text>
   </g>
   <g transform="translate(1600, 700)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E5FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">📧 Email Service</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ“§ Email Service</text>
   </g>
 
   <!-- Row 2 -->
   <g transform="translate(100, 850)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">💳 Payment Service</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ’³ Payment Service</text>
   </g>
   <g transform="translate(400, 850)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">📊 Recommendation</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ“Š Recommendation</text>
   </g>
   <g transform="translate(700, 850)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
-    <text x="125" y="55" text-anchor="middle" class="service">🤖 Shopping Assistant</text>
+    <text x="125" y="55" text-anchor="middle" class="service">ðŸ¤– Shopping Assistant</text>
   </g>
   <g transform="translate(1000, 850)">
     <rect class="node" width="250" height="100" rx="15" fill="url(#card)" stroke="#00E676" stroke-width="3"/>
-    <text x="125" y="55" text-anchor="middle" class="service" style="fill:#00E676">💾 Redis Cache</text>
+    <text x="125" y="55" text-anchor="middle" class="service" style="fill:#00E676">ðŸ’¾ Redis Cache</text>
   </g>
 
   <!-- CONNECTIONS -->
@@ -127,6 +127,7 @@
   <!-- FOOTER -->
   <rect x="50" y="1050" width="1820" height="100" rx="20" fill="url(#card)" stroke="#2979FF" stroke-width="2"/>
   <text x="960" y="1110" text-anchor="middle" style="fill:#FFFFFF;font-size:22px;font-family:Arial;font-weight:bold;">
-    🚀 ALL 12 SERVICES STABILIZED: .NET • JAVA • GO • NODE.JS • PYTHON • REDIS
+    ðŸš€ ALL 12 SERVICES STABILIZED: .NET â€¢ JAVA â€¢ GO â€¢ NODE.JS â€¢ PYTHON â€¢ REDIS
   </text>
 </svg>
+
