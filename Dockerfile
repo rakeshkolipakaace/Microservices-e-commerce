@@ -18,4 +18,4 @@ COPY --from=builder /app .
 
 ENV PATH=/root/.local/bin:$PATH
 
-CMD ["python", "main.py"]
+CMD ["python", "locustfile.py"]
