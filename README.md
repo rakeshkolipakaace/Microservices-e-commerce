@@ -1,5 +1,8 @@
 ﻿# 🛒 Online Boutique: High-Velocity Microservices Ecosystem
 
+![Boutique Helm Infographic](boutique_helm_infographic_1778406365537.png)
+
+
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)](https://www.docker.com/)
 [![Helm](https://img.shields.io/badge/Package-Helm-0F1628?logo=helm)](https://helm.sh/)
