@@ -1,4 +1,4 @@
-# ?? Online Boutique: A Cloud-Native Microservices Stabilization Project
+﻿# 🛒 Online Boutique: A Cloud-Native Microservices Stabilization Project
 
 [![Kubernetes](https://img.shields.io/badge/Platform-Kubernetes-blue?logo=kubernetes)](https://kubernetes.io/)
 [![Docker](https://img.shields.io/badge/Container-Docker-2496ED?logo=docker)](https://www.docker.com/)
@@ -8,13 +8,13 @@ This project showcases the **full-stack stabilization and deployment** of a 12-m
 
 ---
 
-## ??? Architectural Flow
+## 🏗️ Architectural Flow
 The following diagram illustrates how external users interact with the system and how the microservices communicate internally through the DevOps-managed infrastructure.
 
 ```mermaid
 graph TD
     %% External World
-    User((?? External User)) -->|HTTP:9090| Frontend[Frontend - Go]
+    User((🌐 External User)) -->|HTTP:9090| Frontend[Frontend - Go]
     
     %% Core Services
     subgraph "Kubernetes Cluster (Minikube)"
@@ -44,7 +44,7 @@ graph TD
 
 ---
 
-## ??? The DevOps Tech Stack
+## 🛠️ The DevOps Tech Stack
 
 | Tool | Purpose |
 | :--- | :--- |
@@ -57,8 +57,8 @@ graph TD
 
 ---
 
-## ?? Stabilization & Debugging Deep Dive
-This project wasn't just "deployed"�it was **engineered**. Below are the critical DevOps challenges solved:
+## 🔬 Stabilization & Debugging Deep Dive
+This project wasn't just "deployed"—it was **engineered**. Below are the critical DevOps challenges solved:
 
 ### **1. Networking Alignment (The Port 80 Strategy)**
 *   **Challenge:** Services were attempting to connect via raw container ports (e.g., 7070, 5050), leading to `Connection Refused` errors.
@@ -75,7 +75,7 @@ This project wasn't just "deployed"�it was **engineered**. Below are the critica
 
 ---
 
-## ?? How to Run & Demo
+## 🚀 How to Run & Demo
 1.  **Clone & Deploy:**
     ```bash
     helm install boutique ./helm-chart
@@ -88,7 +88,7 @@ This project wasn't just "deployed"�it was **engineered**. Below are the critica
 
 ---
 
-## ?? Interaction with the External World
+## 📧 Interaction with the External World
 The Online Boutique is a **"Customer-Facing"** system. From a DevOps perspective:
 1.  **Ingress:** Traffic enters via a LoadBalancer/NodePort.
 2.  **Latency:** Managed via gRPC for near-instant internal response times.
